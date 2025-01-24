@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array of objects</title>
+    <style>
+        h1{
+            font-weight: 400;
+            background-color: rgb(224, 132, 11);
+            margin: auto;
+            text-align: center;
+            
+        }  
+        h2{
+            background-color: beige;
+            text-align: center;
+            background-size: auto;
+        }
+        h3{
+            background-color: rgb(223, 193, 147);
+            text-align: center;
+        }
+        body{
+            background-color: rgb(35, 207, 207);
+        }
+
+     
+      
+    </style>
+  </head>
+  <body>
+    <script>
+      let playerList = [
+        { name: "Jasprit Bumrah", overs: 9, runs: 43, wickets: 2 },
+        { name: "Mohammed Shami", overs: 7, runs: 47, wickets: 1 },
+        { name: "Ravindra Jadeja", overs: 10, runs: 43, wickets: 0 },
+        { name: "Kuldeep Yadav", overs: 10, runs: 56, wickets: 0 },
+        { name: "Mohammed Siraj", overs: 7, runs: 45, wickets: 1 },
+      ];
+      document.write("<h1>The players names are </h1>");
+      display(playerList);
+      document.write("<h1>More than 10 over</h1>")
+      MaxOver(playerList);
+      document.write("<h1>More than 1 wicket</h1>")
+      MaxWicket(playerList);
+      document.write("<h1>Summary</h1>")
+      TotalRunsAndWickets(playerList)
+
+
+    function TotalRunsAndWickets(p)
+    {
+        let TotalRuns=0;
+        let TotalWicket=0;
+        let TotalOver=0;
+        for (let i = 0; i < p.length; i++)
+        {
+            TotalOver=TotalOver+p[i].overs;
+            TotalRuns=TotalRuns+p[i].runs;
+            TotalWicket=TotalWicket+p[i].wickets;
+        } //for
+        
+        document.write("<h3>The Total Runs are : "+ TotalRuns +"</h3>")
+        document.write("<h3>The Total Over are : "+ TotalOver +"</h3>")
+        document.write("<h3>The Total wickets are : "+ TotalWicket +"</h3>")
+
+    }//TotalRunsAndWickets
+
+    function MaxWicket(p)
+    {
+        let html="<h2>";
+        for (let i = 0; i < p.length; i++)
+        {
+            if (p[i].wickets==1) 
+            {
+                html += p[i].name;
+                html += ", ";
+            }//if
+        } //for
+        html += "</h2>";
+        document.write(html);
+    }//maxWicket
+
+    function MaxOver(p)
+    {
+        let html="<h2>";
+        for (let i = 0; i < p.length; i++)
+        {
+            if (p[i].overs>=10) 
+            {
+                html += p[i].name;
+                html += ", ";
+            }//if
+        } //for
+        html += "</h2>";
+        document.write(html);
+    }//maxover   
+
+    function display(p)
+      {
+        let html = "<h2>";
+        for (let i = 0; i < p.length; i++)
+        {
+            html += p[i].name;
+            if (i < p.length - 1) 
+            {
+                html += ", ";
+            }//if
+        } //for
+        html += "</h2>";
+        document.write(html);
+      }//display
+    </script>
+  </body>
+</html>
